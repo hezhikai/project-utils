@@ -1,0 +1,9 @@
+node_modules
+*.md
+*.scss
+*.less
+/build/
+/config/
+/dist/
+/test/unit/coverage/
+/src/assets/
