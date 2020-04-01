@@ -8,9 +8,9 @@
     "lint": "vue-cli-service lint",
     "lint:js": "eslint --ext .js,.vue src",
     "fix:js": "eslint --fix --ext .js,.vue src",
-    "lint:html": "htmlhint --config .htmlhintrc src/**/*.vue",
+    "lint:html": "htmlhint --config .htmlhintrc.json src/**/*.vue",
     "lint:style": "stylelint --config .stylelintrc.json src/**/*.{vue,css,scss,less}",
-    "fix:style": "stylelint --config .stylelintrc.json **/*.{vue,css,scss,less} --fix"
+    "fix:style": "stylelint --config .stylelintrc.json src/**/*.{vue,css,scss,less} --fix"
   },
   "dependencies": {
     "core-js": "^3.6.4",
