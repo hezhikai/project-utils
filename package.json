@@ -12,8 +12,7 @@
     "lint:style": "stylelint --config .stylelintrc.json src/**/*.{vue,css,scss,less}",
     "fix:style": "stylelint --config .stylelintrc.json src/**/*.{vue,css,scss,less} --fix",
     "prettier": "prettier --check src/**/*.{vue,css,scss,less}",
-    "prettier:fix": "prettier --write src/**/*.{vue,css,scss,less}",
-    "precommit": "lint-staged"
+    "prettier:fix": "prettier --write src/**/*.{vue,css,scss,less}"
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -46,9 +45,6 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
     "vue-template-compiler": "^2.6.11"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
   },
   "husky": {
     "hooks": {
