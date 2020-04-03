@@ -19,7 +19,9 @@ module.exports = {
   },
   extends: [
     // "plugin:vue/essential",
-    "eslint:recommended"
+    // "eslint:recommended",
+    // "prettier"
+    "plugin:prettier/recommended"
   ],
   plugins: [
     "html",
@@ -27,9 +29,11 @@ module.exports = {
     "json",
     "node",
     "promise",
-    "vue"
+    "vue",
+    "prettier"
   ],
   rules: {
+    "prettier/prettier": "error",
     "no-restricted-globals": ["error", "event", "fdescribe"],
     'accessor-pairs': 2,
     'array-bracket-spacing': 0,

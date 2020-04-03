@@ -1,4 +1,3 @@
-
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import wordRouter from './modules/word';
@@ -10,9 +9,9 @@ const routes = [
     path: '/',
     redirect: '/word/excel',
     component: layout,
-    children: childrenRoutes,
-  },
-].map(route => {
+    children: childrenRoutes
+  }
+].map((route) => {
   route.name = route.path;
   // route.component = componentsImport(route.component, route.name);
   return route;

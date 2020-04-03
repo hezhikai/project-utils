@@ -7,7 +7,7 @@ Vue.use(Vuex);
 const store = StorePackage(Vuex, {
   modules: {
     app
-  },
+  }
 });
 
 export default store;

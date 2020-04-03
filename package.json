@@ -10,7 +10,10 @@
     "fix:js": "eslint --fix --ext .js,.vue src",
     "lint:html": "htmlhint --config .htmlhintrc.json src/**/*.vue",
     "lint:style": "stylelint --config .stylelintrc.json src/**/*.{vue,css,scss,less}",
-    "fix:style": "stylelint --config .stylelintrc.json src/**/*.{vue,css,scss,less} --fix"
+    "fix:style": "stylelint --config .stylelintrc.json src/**/*.{vue,css,scss,less} --fix",
+    "prettier": "prettier --check src/**/*.{vue,css,scss,less}",
+    "prettier:fix": "prettier --write src/**/*.{vue,css,scss,less}",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -25,16 +28,19 @@
     "@vue/cli-service": "^4.2.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-json": "^2.1.1",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-vue": "^6.1.2",
     "htmlhint": "^0.11.0",
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
     "lint-staged": "^10.0.9",
+    "prettier": "2.0.2",
     "stylelint": "^13.2.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
@@ -44,7 +50,8 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,vue}": [
+    "*.{js,vue,css,scss,less}": [
+      "prettier --tab-width 2 --write",
       "vue-cli-service lint",
       "git add"
     ]
