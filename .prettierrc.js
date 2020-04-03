@@ -12,6 +12,6 @@ module.exports = {
   "arrowParens": "always", //在唯一箭头函数参数周围包含括号
   "htmlWhitespaceSensitivity": "css", //指定HTML文件的全局空白敏感度，尊重css display属性的默认值
   "vueIndentScriptAndStyle": true, //是否缩进Vue文件中<script>和<style>标记中的代码
-  "endOfLine": "lf", //文本文件的行尾形式，仅限换行（\n）
+  "endOfLine": "auto", //文本文件的行尾形式
   // "parser": "vue" //代码的解析引擎，默认为babylon，与babel相同。
 };
