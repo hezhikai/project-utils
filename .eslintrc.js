@@ -1,8 +1,8 @@
 module.exports = {
   root: true,
-  // parser: "babel-eslint",
   parser: "vue-eslint-parser",
   parserOptions: {
+    parser: "babel-eslint",
     ecmaVersion: 6,
     sourceType: 'module',
     ecmaFeatures: {
@@ -76,7 +76,7 @@ module.exports = {
     'no-constant-condition': 0,
     'no-continue': 0,
     'no-control-regex': 2,
-    'no-debugger': 2,
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-delete-var': 2,
     'no-div-regex': 0,
     'no-dupe-args': 2,

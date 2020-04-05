@@ -1,17 +1,32 @@
+html,
 body {
-  width: 100vw;
+  width: 100%;
   height: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5715;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: #fff;
+}
+body {
   min-width: 1280px;
   min-height: 600px;
   padding-top: 0;
   font-family: 'MicrosoftYaHei';
 }
+.layout,
+.layout * {
+  box-sizing: border-box;
+}
 .flex_row {
+  position: relative;
   display: flex;
   flex-direction: row;
   min-width: 0;
 }
 .flex_column {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 0;
