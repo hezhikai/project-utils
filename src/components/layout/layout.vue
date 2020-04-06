@@ -11,7 +11,7 @@
         <tags-view></tags-view>
       </div>
       <div class="layout_main">
-        <keep-alive>
+        <keep-alive :include="visitedViews">
           <router-view :key="$route.path"></router-view>
         </keep-alive>
       </div>
@@ -19,6 +19,7 @@
   </div>
 </template>
 <script>
+  import { mapGetters } from 'vuex';
   import baseNavigation from './baseNavigation';
   import baseMenu from './baseMenu';
   import tagsView from './tagsView';
@@ -34,6 +35,9 @@
       return {
         isFold: false
       };
+    },
+    computed: {
+      ...mapGetters(['visitedViews'])
     },
     mounted() {
       window.subject.listen('foldTriggle', (isFold) => {

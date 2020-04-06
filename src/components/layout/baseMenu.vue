@@ -1,7 +1,7 @@
 <template>
   <div class="baseMenu">
     <div class="flex_row baseMenu_title" @click="toHome">
-      <i class="el-icon-key"></i>
+      <img src="@/assets/images/utils.png" alt="" />
       <h1 v-if="!isFold">HE 工具库</h1>
     </div>
     <el-menu
@@ -40,22 +40,22 @@
       return {
         menus: [
           {
-            name: 'word 工具',
+            name: 'Office 工具',
             id: '11',
             icon: 'el-icon-document',
-            path: '/word',
+            path: '/office',
             children: [
               {
                 name: 'Excel工具',
                 id: '1101',
                 icon: 'el-icon-document-copy',
-                path: '/word/excel'
+                path: '/office/excel'
               },
               {
                 name: '其他工具',
                 id: '1102',
                 icon: 'el-icon-s-tools',
-                path: '/word/other'
+                path: '/office/other'
               }
             ]
           }
@@ -119,10 +119,6 @@
     cursor: pointer;
     background-color: @boardbackground;
     transition: all 0.3s;
-    i {
-      font-size: 32px;
-      color: @whiteColor;
-    }
     h1 {
       display: inline-block;
       margin: 0 0 0 12px;
@@ -136,7 +132,7 @@
   .baseMenu_menu {
     padding: 16px 0;
   }
-  /deep/.el-menu {
+  /deep/ .el-menu {
     background: @boardbackground;
     border: none;
     .el-submenu__title {

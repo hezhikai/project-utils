@@ -9,9 +9,3 @@
     name: 'App'
   };
 </script>
-<style lang="less" scoped>
-  #app {
-    position: relative;
-    height: 100%;
-  }
-</style>

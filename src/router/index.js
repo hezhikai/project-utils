@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '@/store';
-import wordRouter from './modules/word';
+import officeRouter from './modules/office';
 import layout from '@/components/layout/layout';
 import home from '@/views/home';
 Vue.use(VueRouter);
-let childrenRoutes = [...wordRouter];
+let childrenRoutes = [...officeRouter];
 const routes = [
   {
     path: '*',

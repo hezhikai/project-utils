@@ -39,7 +39,7 @@ const tagsView = {
   actions: {
     addVisitedViews({ commit, state }, view) {
       let isViewInCache = state.visitedViews.find(
-        (v) => v.path === view.path && v.name === view.name
+        (item) => item.path === view.path && item.name === view.name
       );
       if (!isViewInCache) {
         commit('ADD_VISITED_VIEWS', view);

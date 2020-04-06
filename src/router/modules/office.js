@@ -1,10 +1,10 @@
-import excel from '@/views/word/excel';
-import other from '@/views/word/other';
+import excel from '@/views/office/excel';
+import other from '@/views/office/other';
 
 export default [
   {
     name: 'Excel工具',
-    path: 'word/excel',
+    path: 'office/excel',
     meta: {
       title: 'Excel工具'
     },
@@ -12,7 +12,7 @@ export default [
   },
   {
     name: '其他工具',
-    path: 'word/other',
+    path: 'office/other',
     meta: {
       title: '其他工具'
     },
