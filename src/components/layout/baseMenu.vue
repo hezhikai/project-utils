@@ -61,8 +61,8 @@
           }
         ],
         activeMenu: '',
-        defaultOpeneds: [],
-        isFold: false
+        defaultOpeneds: [], //默认展开的导航栏父级
+        isFold: false //导航栏是否折叠
       };
     },
     computed: {
@@ -74,6 +74,7 @@
           this.defaultOpeneds = [];
           this.activeMenu = '';
         }
+        // 根据激活的页面数据自动匹配展开的父级导航、当前激活的导航
         for (let i = 0; i < this.menus.length; i++) {
           if (value.path.split('/')[1] === this.menus[i].path.split('/')[1]) {
             this.defaultOpeneds = [this.menus[i].id];

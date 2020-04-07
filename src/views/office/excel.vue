@@ -34,12 +34,20 @@
     },
     mounted() {},
     methods: {
+      /**
+       * 本地文件上传
+       * @param {object} 本地文件
+       */
       changeFile(file) {
         let fileReader = new FileReader();
         fileReader.onload = this.readXlsx;
         // 以二进制方式打开文件
         fileReader.readAsBinaryString(file.raw);
       },
+      /**
+       * 解析 excel
+       * @param {object} 二进制文件对象
+       */
       readXlsx(event) {
         // 以二进制流方式读取得到整份excel表格对象
         let workbook = XLSX.read(event.target.result, {

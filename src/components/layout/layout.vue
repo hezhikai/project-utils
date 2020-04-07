@@ -33,7 +33,7 @@
     },
     data() {
       return {
-        isFold: false
+        isFold: false //导航栏是否折叠
       };
     },
     computed: {

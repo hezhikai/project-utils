@@ -15,9 +15,9 @@ export function coerceBoolean(value) {
 
 /**
  * 判断变量的类型
- * @param val
- * @param type
- * @returns {Boolean}
+ * @param val 变量
+ * @param type 类型
+ * @returns {Boolean} 该变量是否为该类型
  */
 export function checkType(val, type) {
   if (Array.isArray(type)) {

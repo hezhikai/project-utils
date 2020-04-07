@@ -1,5 +1,10 @@
 import router from '@/router';
 import methods from '@/utils/methods';
+/**
+ * 解构 view 对象
+ * @param {object} view 页面视图
+ * @returns {object} 解构后的 view 对象
+ */
 function deconstructView(view) {
   const { name, meta = {}, path, query, params, fullPath } = view;
   return {
@@ -13,9 +18,9 @@ function deconstructView(view) {
 }
 const tagsView = {
   state: {
-    visitedViews: methods.getLocalStorageItem('visitedViews') || [],
-    activeView: methods.getLocalStorageItem('activeView') || {},
-    homePage: '/home'
+    visitedViews: methods.getLocalStorageItem('visitedViews') || [], //已访问的页面列表
+    activeView: methods.getLocalStorageItem('activeView') || {}, //激活的页面
+    homePage: '/home' //首页路径
   },
   mutations: {
     ADD_VISITED_VIEWS(state, view) {
@@ -37,6 +42,11 @@ const tagsView = {
     }
   },
   actions: {
+    /**
+     * 添加当前页面到已访问页面列表
+     * @param {object} store store 对象
+     * @param {object} view 当前页面
+     */
     addVisitedViews({ commit, state }, view) {
       let isViewInCache = state.visitedViews.find(
         (item) => item.path === view.path && item.name === view.name
@@ -45,6 +55,11 @@ const tagsView = {
         commit('ADD_VISITED_VIEWS', view);
       }
     },
+    /**
+     * 从已访问页面列表中删除当前页面
+     * @param {object} store store 对象
+     * @param {object} view 当前页面
+     */
     delVisitedView({ commit, state }, view) {
       commit('DEL_VISITED_VIEW', view);
       if (
@@ -57,6 +72,11 @@ const tagsView = {
         router.push(state.homePage);
       }
     },
+    /**
+     * 将激活的页面改为当前页面
+     * @param {object} store store 对象
+     * @param {object} view 当前页面
+     */
     changeActiveView({ commit }, view) {
       commit('CHANGE_ACTIVE_VIEW', view);
     }

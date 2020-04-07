@@ -28,9 +28,11 @@
     },
     computed: {
       ...mapGetters(['visitedViews', 'activeView']),
+      // 当前页面
       curView() {
         return this.activeView ? this.activeView.path : '';
       },
+      // 是否展示 tab 标签列表
       showTabs() {
         return (
           this.$route.name !== '首页' &&
@@ -48,12 +50,19 @@
       this.addViewTag();
     },
     methods: {
+      /**
+       * 添加页面标签
+       */
       addViewTag() {
         this.$store.dispatch('changeActiveView', this.$route);
         if (this.$route.name !== '首页') {
           this.$store.dispatch('addVisitedViews', this.$route);
         }
       },
+      /**
+       * 跳转到目标页面标签
+       * @param {object} 目标页面标签
+       */
       moveToViewTab(view) {
         const formatView = {
           name: view.label,
@@ -63,6 +72,10 @@
         this.$router.push(formatView.path);
         this.$store.dispatch('changeActiveView', formatView);
       },
+      /**
+       * 移除目标页面标签
+       * @param {object} 目标页面标签
+       */
       removeViewTab(name) {
         this.$store.dispatch('delVisitedView', { path: name });
       }

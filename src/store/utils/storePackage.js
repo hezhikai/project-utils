@@ -1,6 +1,7 @@
 /**
  * 获取 getters
  * @param {object} config store 配置项
+ * @returns {object} getters
  */
 function getGetters(config) {
   let defaultGetters = {};

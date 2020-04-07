@@ -1,5 +1,6 @@
 /**
  * 枚举方法
+ * @param {object} obj 枚举对象
  */
 export default function MapObject(obj) {
   Object.keys(obj).forEach((key) => {
