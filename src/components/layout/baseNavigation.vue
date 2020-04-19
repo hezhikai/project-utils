@@ -1,14 +1,12 @@
 <template>
   <div class="flex_row baseNavigation">
-    <div class="baseNavigation_trigger">
-      <i
-        :class="isFold ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
-        @click="triggle"
-      ></i>
+    <div class="baseNavigation_trigger" @click="triggle">
+      <i :class="isFold ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
     </div>
     <div class="flex_row baseNavigation_right">
       <div class="baseNavigation_item">
         <i class="el-icon-user"></i>
+        <span>游客</span>
       </div>
     </div>
   </div>
@@ -58,7 +56,14 @@
     align-items: center;
     height: 100%;
     padding: 0 12px;
-    cursor: pointer;
+    // cursor: pointer;
     transition: all 0.3s;
+    i {
+      vertical-align: middle;
+    }
+    span {
+      margin-left: 8px;
+      font-size: 16px;
+    }
   }
 </style>

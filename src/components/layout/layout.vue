@@ -12,7 +12,7 @@
       </div>
       <div class="layout_main">
         <keep-alive :include="visitedViews">
-          <router-view :key="$route.path"></router-view>
+          <router-view :key="$route.path" id="router"></router-view>
         </keep-alive>
       </div>
     </div>
@@ -55,7 +55,7 @@
   }
   .layout_sidebar {
     position: relative;
-    z-index: 10;
+    z-index: 1;
     width: 240px;
     min-height: 100%;
     background-color: #001529;
@@ -66,7 +66,6 @@
     }
   }
   .layout_body {
-    z-index: 9;
     flex: 1;
     overflow: auto;
   }
