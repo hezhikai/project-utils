@@ -18,7 +18,7 @@
         <el-button
           type="primary"
           :disabled="tableData.length === 0"
-          @click="confirm"
+          @click="copy"
           >复制所选字段</el-button
         >
       </div>
@@ -147,21 +147,30 @@
       filterColumn(val) {
         this.tableData = [];
         let map = {};
-        let indexMap = {};
-        this.excelTables[0].data.forEach((item) => {
-          map[item[val]] = 1;
-        });
         this.excelTables[1].data.forEach((item) => {
-          // 找出相同的数据，第一条数据作为 row ，其他数据作为 otherRow 存放
-          if (map[item[val]] === 1) {
-            this.tableData.push({ ...item, onlyOne: true, otherRow: [] });
-            indexMap[item[val]] = this.tableData.length - 1;
-          } else if (map[item[val]] > 1) {
-            let itemIndex = indexMap[item[val]];
-            this.tableData[itemIndex].onlyOne = false;
-            this.tableData[itemIndex].otherRow.push(item);
+          if (map[item[val]] && map[item[val]].length > 0) {
+            map[item[val]].push(item);
+          } else {
+            map[item[val]] = [item];
           }
-          map[item[val]]++;
+        });
+        // 以原始组 table 为基础，以对比组 table 做统计
+        this.excelTables[0].data.forEach((item) => {
+          // 找出相同的数据，第一条数据作为 row ，其他数据作为 otherRow 存放
+          if (!Array.isArray(map[item[val]])) {
+            this.tableData.push({
+              onlyOne: true,
+              otherRow: []
+            });
+          } else if (Array.isArray(map[item[val]])) {
+            const otherRow =
+              map[item[val]].length > 1 ? map[item[val]].slice(1) : [];
+            this.tableData.push({
+              ...map[item[val]][0],
+              onlyOne: otherRow.length === 0,
+              otherRow: otherRow
+            });
+          }
         });
       },
       /**
@@ -180,9 +189,9 @@
         }
       },
       /**
-       * 确认
+       * 复制字段
        */
-      confirm() {
+      copy() {
         if (!this.confirmData) {
           this.$message({
             type: 'error',
