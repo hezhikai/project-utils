@@ -2,7 +2,7 @@
   <div class="baseMenu">
     <div class="flex_row baseMenu_title" @click="toHome">
       <img src="@/assets/images/utils.png" alt="" />
-      <h1 v-if="!isFold">HE 工具库</h1>
+      <h1 v-if="!isFold">汪子工具库</h1>
     </div>
     <el-menu
       class="baseMenu_menu"
